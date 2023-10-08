@@ -1,0 +1,27 @@
+.landing-page{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-top: 3rem;
+   background-repeat: no-repeat;
+    height: 50rem;
+    background-size: contain;
+   background-color:rgba(255,255,255,0.2);
+   background-image: url('./assets/planet.jpg');
+}
+.main-btn{
+   margin-left: 7rem !important;
+}
+.content {
+   //position: absolute; /* Position the background text */
+   //bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+   /* background: rgb(0, 0, 0);  Fallback color 
+   background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity 
+   color: #f1f1f1; /* Grey text  */
+   width: 100%; /* Full width */
+   padding: 20px; /* Some padding */
+   line-height: 2rem;
+   font-size: 2rem;
+   color: auto;
+   margin-top: 3rem;
+ }

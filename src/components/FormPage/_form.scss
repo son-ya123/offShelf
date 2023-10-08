@@ -1,0 +1,19 @@
+.form-container{
+   margin-top: 3rem;
+}
+.button-container{
+   display: flex;
+   justify-content: space-between;
+}
+.tiles-container{
+   display: flex;
+   gap:1rem;
+   flex-direction: column;
+   margin: 1rem;
+}
+.form-title{
+   margin: 4rem 1rem 1rem 1rem;
+}
+.cds--tile{
+   height: 20rem;
+}
