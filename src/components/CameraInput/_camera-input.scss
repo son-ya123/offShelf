@@ -1,7 +1,8 @@
-.form-container{
-   margin-top: 3rem;
-}
-.button-container{
+.button-container {
    display: flex;
    justify-content: space-between;
+
+   .camera-save-btn {
+      max-inline-size: calc(100vw - 2rem);
+   }
 }
