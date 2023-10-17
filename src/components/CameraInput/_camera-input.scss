@@ -1,7 +1,109 @@
-.form-container{
+.form-container {
    margin-top: 3rem;
 }
-.button-container{
+
+.text-container {
+   background-color: lightgrey;
    display: flex;
+   flex-direction: column;
+   // align-items: center;
+   padding: 20px;
+}
+
+.camera-container {
+   position: relative;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.camera-container .button-container {
+   position: absolute;
+   top: 0;
+   left: 0;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   margin: 10px 10px;
+}
+
+.web-camera {
+   max-width: 100%;
+   // width: 100vw;
+   height: auto;
+   display: block;
+   margin: 0 auto;
+}
+
+.scan-button Button {
+   max-width: 100%;
+   align-items: center;
+   text-align: center;
+}
+
+.inline-text {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   width: 100%;
+}
+
+.product-name {
+   font-weight: 500;
+}
+
+.days {
+   font-weight: bold;
+   color: blue;
+   // font-size: 1.5rem;
+}
+
+.bottom-text {
+   flex: 1;
+   text-align: left;
+   color: grey;
+}
+
+.img-container {
+   position: relative;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.img-saved {
+   max-width: 100%;
+   height: auto;
+   display: block;
+   margin: 0 auto;
+}
+
+.img-container .button-container {
+   position: absolute;
+   top: 0;
+   left: 0;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   margin: 10px 10px;
+}
+
+.button-container .btn-cancel {
+   width: 45px;
+   height: 45px;
+   padding: 10px 20px;
+   margin: 5px;
+   align-items: center;
+   border-radius: 10rem;
+   text-align: center;
+   display: flex;
+   justify-content: center;
+   font-weight: bold;
+   color: red;
+}
+
+.button-footer {
+   display: flex;
+   align-items: center;
    justify-content: space-between;
 }
