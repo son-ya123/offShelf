@@ -15,11 +15,6 @@ import {
 } from "react-router-dom";
 import CameraInput from './components/CameraInput';
 import { Login } from '@carbon/icons-react';
-import { GlobalTheme, Theme } from '@carbon/react';
-import Dashboard from './components/Dashboard';
-import { Product } from '@carbon/icons-react';
-import ProductDetails from './components/ProductDetails';
-import VoiceInput from './components/VoiceInput';
 
 function App() {
   const { theme } = useTheme();
@@ -28,9 +23,9 @@ function App() {
     {
       path: "/",
       element: <LandingPage />,
-      errorElement: <ErrorPage />,
+      errorElement: <><PageHeader /><ErrorPage /></>,
 
-    }, 
+    },
     {
       path: "login",
       element: <LoginPage />,
@@ -48,9 +43,21 @@ function App() {
       element: <FormOutputPage />,
     },
     {
-      path:"register",
-      element: <RegisterPage/>,
+      path: "register",
+      element: <RegisterPage />,
     },
+    {
+      path: "form/voice",
+      element: <><PageHeader /><VoiceInput /></>,
+    },
+    {
+      path: "dashboard",
+      element: <><PageHeader /><Dashboard /></>,
+    },
+    {
+      path: "register",
+      element: <RegisterPage />,
+    }
   ]);
   return (
     <div >

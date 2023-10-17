@@ -5,19 +5,14 @@ import {
 import Webcam from "react-webcam";
 import CameraInput from '../CameraInput';
 import { Link, useNavigate } from 'react-router-dom';
-import { ArrowRight } from '@carbon/icons-react';
-const videoConstraints = {
-    width: 1280,
-    height: 720,
-    facingMode: "user"
-};
+
 const LoginPage = () => {
     const [image, saveImage] = useState();
     const navigate = useNavigate();
     return (
-        <div className='container'>
+        <div className='form-container'>
             {/* <CameraInput image={image} saveImage={saveImage}/> */}
-            <div className='tiles-container'>
+            {/* <div className='tiles-container'> */}
                 <h5 className='form-title'>Sign in</h5>
                 <FluidForm>
                     <TextInput type="text" labelText="Email" id="email" placeholder='Your email' />
@@ -32,7 +27,7 @@ const LoginPage = () => {
                     </div>
                     <br /><br />
                     <div className='sign-in-btn'>
-                    <Button type='submit' >Sign in</Button>
+                    <Button type='submit' style={{borderRadius: '50px'}} onClick={e => {navigate("/dashboard")}}>Sign in</Button>
                     </div>
                     <br /><br />
                     <div className='custom-divider'>
@@ -40,13 +35,12 @@ const LoginPage = () => {
                     </div>
                     <br /><br />
                     <div className='google-btn'>
-                    <Button type='button' >Sign in with Google</Button> </div>
+                    <Button type='button' style={{borderRadius: '50px'}}>Sign in with Google</Button> </div>
                     <br /><br />
                     <h5 className='text-options'> Don't have an account? <Link href="register" onClick={e => { navigate('/register') }}> Sign Up</Link>
                     </h5>
                 </FluidForm>
-            </div>
-
+            {/* </div> */}
         </div>)
 }
 

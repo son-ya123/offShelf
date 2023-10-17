@@ -18,7 +18,7 @@ Food waste has a number of negative consequences. It's a waste of resources, inc
 Food waste also has a social impact. While we're wasting food, millions of people around the world are going hungry. In fact, every 12 seconds, a child dies from hunger. 
 We can all help to reduce food waste and make a difference for the environment and for the people who are hungry. */}</div>
         <img src={foodImage} />
-        <div className='main-btn'><Button size='lg' onClick={e => { navigate("/dashboard") }}>Login</Button></div>
+        <div className='main-btn'><Button size='lg' onClick={e => { navigate("/login") }}>Login</Button></div>
       </div>
     </>
   )

@@ -33,9 +33,9 @@
     text-align: center;
 }
 
-.sign-in-btn Button, .google-btn Button{
+.sign-in-container, .google-btn Button{
     justify-content: center;
-    width: 100%;
+    max-width: 100%;
 }
 
 .custom-divider {

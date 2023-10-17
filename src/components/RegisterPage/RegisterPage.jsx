@@ -17,7 +17,10 @@ const RegisterPage = () => {
     return (
         <div className='container'>
             {/* <CameraInput image={image} saveImage={saveImage}/> */}
-            <div className='tiles-container'>
+            <div className='form-container'>
+                <div className='form-header'>
+                
+                </div>
                 <div className='form-title'>
                 <Button className='arrowLeft' onClick={e => navigate("/login")} size='sm' kind='ghost' renderIcon={ArrowLeft}></Button>
                 <h5 className='form-title'>Create Account</h5>
@@ -37,7 +40,7 @@ const RegisterPage = () => {
                     </div>
                     <br /><br />
                     <div className='sign-in-btn'>
-                        <Button type='submit' >Sign up</Button>
+                        <Button type='submit' style={{borderRadius: '50px'}}>Sign up</Button>
                     </div>
                     <br /><br />
                     <div className='custom-divider'>
@@ -45,7 +48,7 @@ const RegisterPage = () => {
                     </div>
                     <br /><br />
                     <div className='google-btn'>
-                        <Button type='button' >Sign in with Google</Button> </div>
+                        <Button type='button' style={{borderRadius: '50px'}}>Sign in with Google</Button> </div>
                     <br /><br />
                     <h5 className='text-options'> Already have an account <Link inline href="/login" onClick={e => { navigate("/login") }} > Sign In</Link>
                     </h5>

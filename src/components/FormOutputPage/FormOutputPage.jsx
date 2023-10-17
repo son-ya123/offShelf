@@ -4,12 +4,7 @@ import {
 } from '@carbon/react';
 import { Link, useNavigate } from 'react-router-dom';
 import sampleImage from '../../assets/sample.jpg';
-import { Add, CrossTab, List, TextBold, } from '@carbon/icons-react';
-const videoConstraints = {
-    width: 1280,
-    height: 720,
-    facingMode: "user"
-};
+import { Add, CrossTab, List, TextBold, Close } from '@carbon/icons-react';
 const FormOuputPage = () => {
     const [image, saveImage] = useState();
     // const [expiryDate] = useState(new Date());
@@ -116,27 +111,27 @@ const FormOuputPage = () => {
             <form onSubmit={handleSubmit}>
                 {/* <CameraInput image={image} saveImage={saveImage}/> */}
                 {/* <h4 className='form-title'>Add products</h4> */}
-                <div className='tiles-container'>
+                <div className='container'>
                     <div className='img-container'>
                         <div className='product-img'>
-                            <img src={sampleImage} className='img-saved'></img>
+                            <img src={sampleImage} ></img>
                         </div>
                         <div className='button-container'>
-                            <Button className='btn-cancel' kind='default' onClick={e => { navigate('/form/camera') }}>X</Button>
-                            <Button className='btn-saved' type='submit'>Save</Button>
+                            <Button className='btn-cancel' kind='default' onClick={e => { navigate('/form/camera') }} renderIcon={Close} hasIconOnly ></Button>
+                            <Button className='btn-saved' type='submit' onClick={e =>{navigate('/dashboard')} }>Save</Button>
                         </div>
                     </div>
                     <div className='product-name' >
                         {/* <label>Product name</label> */}
-                        {/* <br /> */}
-                        {/* <br /> */}
+                        <br />
+                        <br />
                         <TextInput placeholder='Carrot' id='productName' className='productName' value="Carrot"></TextInput>
                     </div>
 
                     <div className='product-type'>
                         {/* <label>Product type</label> */}
                         {/* <br /> */}
-                        {/* <br /> */}
+                        <br />
                         <div className='product-sub-type'>
                             <TextInput id='productType' className='productType' placeholder='Vegetable' value="Vegetable"></TextInput>
                         </div>
@@ -144,7 +139,7 @@ const FormOuputPage = () => {
 
                     <div className='product-quantity'>
                         {/* <label className='left-text'>Product quantity</label> */}
-                        {/* <br /> */}
+                        <br />
                         {/* <br /> */}
                         <div className='quantity'>
                             <p className='left-text'> {quantity} unit
@@ -156,14 +151,15 @@ const FormOuputPage = () => {
                             </div>
                         </div>
                     </div>
+                    <br />
                     <div className='expiry-container'>
                         {/* <div className='left-container'> */}
-                            <div className='inline-text'>
-                                <span>Expiry date</span>
-                                <span><Toggle defaultToggled id="toggle-1" hideLabel /></span>
-                            </div>
-                            <br />
-                            <div className='left-text' style={{ color: "skyblue" }}>in 7 days</div>
+                        <div className='inline-text'>
+                            <span>Expiry date</span>
+                            <span><Toggle defaultToggled id="toggle-1" hideLabel /></span>
+                        </div>
+                        {/* <br /> */}
+                        <div className='left-text' style={{ color: "skyblue" }}>in 7 days</div>
                         {/* </div> */}
                         {/* <div className='right-container'>
                             <Toggle defaultToggled id="toggle-1" hideLabel />
@@ -171,6 +167,7 @@ const FormOuputPage = () => {
                     </div>
                     <br />
                     <h5>Keep track of the days from the selected date</h5>
+                    <br />
                     <div className='shelf-container'>
                         <div className='left-text'>
                             Shelf life
@@ -179,6 +176,7 @@ const FormOuputPage = () => {
                             <Toggle defaultToggled id="toggle-1" hideLabel />
                         </div>
                     </div>
+                    <br />
                     <div className='days-container'>
                         <p className='left-text'>{count} days</p>
                         <div className='right-btn'>
@@ -186,6 +184,7 @@ const FormOuputPage = () => {
                             <Button className='buttonPlus' onClick={incrementCount} size='sm' kind='ghost'>+</Button>
                         </div>
                     </div>
+                    <br />
                     <div className='product-expiry'>
                         {/* <label>Date expiry</label> */}
                         {/* <br /> */}
@@ -195,8 +194,10 @@ const FormOuputPage = () => {
                         </DatePicker>
                     </div>
                     <br />
+                    <br />
                     <h5>Number of days that this item can remain refresh and safe for consumption after purchase or used.</h5>
-
+                    <br />
+                    <br />
                 </div>
             </form>
         </div>)
