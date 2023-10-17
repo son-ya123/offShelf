@@ -7,16 +7,23 @@ import PageHeader from './components/PageHeader';
 import FormOutputPage from './components/FormOutputPage';
 import LoginPage from './components/LoginPage';
 import RegisterPage from './components/RegisterPage';
-
+import { useTheme } from '@carbon/react';
 import {
   createBrowserRouter,
   RouterProvider,
+  useLocation,
 } from "react-router-dom";
 import CameraInput from './components/CameraInput';
 import { Login } from '@carbon/icons-react';
-
+import { GlobalTheme, Theme } from '@carbon/react';
+import Dashboard from './components/Dashboard';
+import { Product } from '@carbon/icons-react';
+import ProductDetails from './components/ProductDetails';
+import VoiceInput from './components/VoiceInput';
 
 function App() {
+  const { theme } = useTheme();
+
   const router = createBrowserRouter([
     {
       path: "/",
@@ -30,11 +37,11 @@ function App() {
     },
     {
       path: "form/new",
-      element: <FormPage />,
+      element: <><PageHeader /><FormPage /></>,
     },
     {
       path: "form/camera",
-      element: <CameraInput />,
+      element: <><PageHeader /><CameraInput /></>,
     },
     {
       path: "form/output",
