@@ -4,6 +4,9 @@ import ErrorPage from './components/ErrorPage';
 import FormPage from './components/FormPage/FormPage';
 import LandingPage from './components/LandingPage';
 import PageHeader from './components/PageHeader';
+import FormOutputPage from './components/FormOutputPage';
+import LoginPage from './components/LoginPage';
+import RegisterPage from './components/RegisterPage';
 import { useTheme } from '@carbon/react';
 import {
   createBrowserRouter,
@@ -16,6 +19,7 @@ import Dashboard from './components/Dashboard';
 import { Product } from '@carbon/icons-react';
 import ProductDetails from './components/ProductDetails';
 import VoiceInput from './components/VoiceInput';
+import { Login } from '@carbon/icons-react';
 
 function App() {
   const { theme } = useTheme();
@@ -28,12 +32,20 @@ function App() {
 
     },
     {
+      path: "login",
+      element: <LoginPage />,
+    },
+    {
       path: "form/new",
       element: <><PageHeader /><FormPage /></>,
     },
     {
       path: "form/camera",
       element: <><PageHeader /><CameraInput /></>,
+    },
+    {
+      path: "form/output",
+      element: <><PageHeader /><FormOutputPage /></>,
     },
     {
       path: "form/voice",
@@ -44,9 +56,13 @@ function App() {
       element: <><PageHeader /><Dashboard /></>,
     },
     {
+      path: "register",
+      element: <RegisterPage />,
+    },
+    {
       path: "product-details",
       element: <><PageHeader /><ProductDetails /></>,
-    },
+    }
   ]);
   return (
     <GlobalTheme theme="g10">
