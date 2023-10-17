@@ -8,6 +8,7 @@ import { useTheme } from '@carbon/react';
 import {
   createBrowserRouter,
   RouterProvider,
+  useLocation,
 } from "react-router-dom";
 import CameraInput from './components/CameraInput';
 import { GlobalTheme, Theme } from '@carbon/react';
@@ -23,35 +24,34 @@ function App() {
     {
       path: "/",
       element: <LandingPage />,
-      errorElement: <ErrorPage />,
+      errorElement: <><PageHeader /><ErrorPage /></>,
 
     },
     {
       path: "form/new",
-      element: <FormPage />,
+      element: <><PageHeader /><FormPage /></>,
     },
     {
       path: "form/camera",
-      element: <CameraInput />,
+      element: <><PageHeader /><CameraInput /></>,
     },
     {
       path: "form/voice",
-      element: <VoiceInput />,
+      element: <><PageHeader /><VoiceInput /></>,
     },
     {
       path: "dashboard",
-      element: <Dashboard />,
+      element: <><PageHeader /><Dashboard /></>,
     },
     {
       path: "product-details",
-      element: <ProductDetails />,
+      element: <><PageHeader /><ProductDetails /></>,
     },
   ]);
   return (
-    <GlobalTheme theme="g100">
-      <Theme theme="g100">
+    <GlobalTheme theme="g10">
+      <Theme theme="g10">
         <>
-          <PageHeader />
           <React.StrictMode>
             <RouterProvider router={router} />
           </React.StrictMode>

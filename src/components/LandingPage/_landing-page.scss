@@ -6,7 +6,7 @@
   height: 100vh;
   width: 100%;
   padding: 1rem;
-  margin-top: 1rem;
+  background: #000;
 
   img {
     object-fit: contain;
@@ -42,4 +42,8 @@
     text-align: center;
     margin-top: 1rem;
   }
+}
+
+body {
+  background: #f4f4f4 !important;
 }

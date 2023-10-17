@@ -22,21 +22,27 @@
 .add-product {
   display: flex;
   justify-content: center;
-  padding-bottom: 2rem;
+  position: sticky;
+  bottom: 0.5rem;
+  left: 50%;
+
 
   .cds--btn--primary {
-    width: 55%;
+    width: 60vw;
     align-items: center;
     justify-content: center;
     padding-left: 4rem;
     border-radius: 2rem;
-    bottom: 3rem;
     white-space: nowrap;
   }
 }
 
 .product-list {
-  height: calc(100vh - 12rem);
+  min-height: max-content;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  padding-bottom: 1rem;
 }
 
 .products-details {
@@ -59,6 +65,7 @@
 
 .product-list {
   .cds--tile {
+    width: fit-content;
     height: fit-content;
     margin: 0.5rem;
     border-radius: 1rem;
@@ -72,8 +79,16 @@
 
 .products-expiry-date {
   font-size: 16px;
-  color: #029CFD;
+  color: #0050e6;
 }
+
+.cds--tag--high-contrast {
+  background-color: #0050e6 !important;
+}
+
+/* .cds--tag--outline {
+  box-shadow: 0 0 0 1px #0050e6 !important;
+} */
 
 .products-name {
   font-size: 16px;
