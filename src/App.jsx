@@ -14,6 +14,11 @@ import {
   useLocation,
 } from "react-router-dom";
 import CameraInput from './components/CameraInput';
+import { GlobalTheme, Theme } from '@carbon/react';
+import Dashboard from './components/Dashboard';
+import { Product } from '@carbon/icons-react';
+import ProductDetails from './components/ProductDetails';
+import VoiceInput from './components/VoiceInput';
 import { Login } from '@carbon/icons-react';
 
 function App() {
@@ -40,11 +45,7 @@ function App() {
     },
     {
       path: "form/output",
-      element: <FormOutputPage />,
-    },
-    {
-      path: "register",
-      element: <RegisterPage />,
+      element: <><PageHeader /><FormOutputPage /></>,
     },
     {
       path: "form/voice",
@@ -57,17 +58,22 @@ function App() {
     {
       path: "register",
       element: <RegisterPage />,
+    },
+    {
+      path: "product-details",
+      element: <><PageHeader /><ProductDetails /></>,
     }
   ]);
   return (
-    <div >
-      <PageHeader />
-      <React.StrictMode>
-        <RouterProvider router={router} />
-      </React.StrictMode>
-
-
-    </div>
+    <GlobalTheme theme="g10">
+      <Theme theme="g10">
+        <>
+          <React.StrictMode>
+            <RouterProvider router={router} />
+          </React.StrictMode>
+        </>
+      </Theme>
+    </GlobalTheme>
   )
 }
 
