@@ -29,13 +29,15 @@
 }
 
 .sign-in-btn,
-.google-btn, .text-options {
+.google-btn,
+.text-options {
     text-align: center;
 }
 
-.sign-in-container, .google-btn Button{
+.sign-in-container,
+.google-btn Button {
     justify-content: center;
-    max-width: 100%;
+    /* max-width: 100%; */
 }
 
 .custom-divider {
@@ -43,7 +45,8 @@
     align-items: center;
 }
 
-.custom-divider::before, .custom-divider::after {
+.custom-divider::before,
+.custom-divider::after {
     content: '';
     flex: 1;
     border-top: 1px solid #000;

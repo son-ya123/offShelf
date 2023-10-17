@@ -11,7 +11,8 @@ const LandingPage = () => {
   return (
     <>
       <div className='landing-page'>
-        <div className='content'>Reduce waste, save the planet!{/* Every year, one-third of all food produced for human consumption is wasted. That's over 1.3 billion tons of food. This waste occurs at all stages of the food supply chain, from production to processing to distribution to consumption.
+        <div className='content' style={{ marginTop: '1rem' }}>Reduce waste,</div>
+        <div className='content'> save the planet!{/* Every year, one-third of all food produced for human consumption is wasted. That's over 1.3 billion tons of food. This waste occurs at all stages of the food supply chain, from production to processing to distribution to consumption.
 
 Food waste has a number of negative consequences. It's a waste of resources, including water, land, and energy. It also contributes to climate change, as food waste that decomposes in landfills produces methane, a greenhouse gas that is 25 times more potent than carbon dioxide.
 

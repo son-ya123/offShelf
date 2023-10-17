@@ -1,46 +1,72 @@
 import React, { useState } from 'react';
 import {
-    Button, ClickableTile, FluidForm, TextInput, Tile, Checkbox, PasswordInput
+    Button, FluidForm, TextInput, Tile, Checkbox, PasswordInput, ToastNotification, ActionableNotification
 } from '@carbon/react';
-import Webcam from "react-webcam";
-import CameraInput from '../CameraInput';
 import { Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft, ArrowRight } from '@carbon/icons-react';
-const videoConstraints = {
-    width: 1280,
-    height: 720,
-    facingMode: "user"
-};
+import apiConfig from '../../config/apiConfig.json';
+import axios from 'axios';
+
 const RegisterPage = () => {
-    const [image, saveImage] = useState();
     const navigate = useNavigate();
+    const [checked, setChecked] = useState(true);
+    const [loading, setLoading] = useState(false);
+    const [success, setSuccess] = useState(false);
+    const [error, setErrMsg] = useState();
+    const [email, setEmail] = useState();
+    const [userName, setUserName] = useState();
+    const [password, setPassword] = useState();
+
+    const register = async () => {
+        try {
+            setLoading(true);
+            setErrMsg();
+            setSuccess(false);
+            const result = await axios.post(apiConfig.register, {
+                username: userName,
+                email: email,
+                password: password
+            });
+            setSuccess(true)
+            setLoading(false);
+        } catch (err) {
+            if (await err.response) {
+                setErrMsg(JSON.stringify(await err.response?.data));
+            }
+            else {
+                setErrMsg("Unexpected error occurred")
+            }
+            setLoading(false)
+        }
+    }
+
     return (
         <div className='container'>
             {/* <CameraInput image={image} saveImage={saveImage}/> */}
-            <div className='form-container'>
+            <div className={success || error ? 'form-container overlay' : 'form-container'}>
                 <div className='form-header'>
-                
+
                 </div>
                 <div className='form-title'>
-                <Button className='arrowLeft' onClick={e => navigate("/login")} size='sm' kind='ghost' renderIcon={ArrowLeft}></Button>
-                <h5 className='form-title'>Create Account</h5>
+                    <Button className='arrowLeft' onClick={e => navigate("/login")} size='sm' kind='ghost' renderIcon={ArrowLeft}></Button>
+                    <h5 className='form-title'>Create Account</h5>
                 </div>
                 <FluidForm>
-                    <TextInput type="text" labelText="Username" id="username" placeholder='Your username' />
+                    <TextInput type="text" labelText="Username" id="username" placeholder='Your username' onChange={e => { setUserName(e.target.value) }} />
                     <br />
                     <br />
-                    <TextInput type="email" labelText="Email" id="email" placeholder='Your email' />
+                    <TextInput type="email" labelText="Email" id="email" placeholder='Your email' onChange={e => { setEmail(e.target.value) }} />
                     <br />
                     <br />
                     <PasswordInput type="password" labelText="Password" id="password"
-                        placeholder='6+ character' />
+                        placeholder='6+ character' onChange={e => { setPassword(e.target.value) }} />
                     <br />
                     <div className='login-options'>
-                        <Checkbox defaultChecked labelText={`I accept the term and privacy policy?`} className="remember-me" />
+                        <Checkbox id="remember" checked={checked} onClick={() => { setChecked(!checked) }} labelText={`I accept the term and privacy policy?`} className="remember-me" />
                     </div>
                     <br /><br />
                     <div className='sign-in-btn'>
-                        <Button type='submit' style={{borderRadius: '50px'}}>Sign up</Button>
+                        <Button disabled={!(checked && email && userName && email)} onClick={() => { register() }} type='submit' style={{ borderRadius: '50px' }}>Sign up</Button>
                     </div>
                     <br /><br />
                     <div className='custom-divider'>
@@ -48,12 +74,15 @@ const RegisterPage = () => {
                     </div>
                     <br /><br />
                     <div className='google-btn'>
-                        <Button type='button' style={{borderRadius: '50px'}}>Sign in with Google</Button> </div>
+                        <Button disabled={!(checked && email && userName && email)} type='button' style={{ borderRadius: '50px' }}>Sign in with Google</Button> </div>
                     <br /><br />
                     <h5 className='text-options'> Already have an account <Link inline href="/login" onClick={e => { navigate("/login") }} > Sign In</Link>
                     </h5>
                 </FluidForm>
+
             </div>
+            {success && <ActionableNotification actionButtonLabel="Continue" onCloseButtonClick={() => navigate('/dashboard')} role="status" title="Success" subtitle="Your account has been created" kind="success" lowContrast={true} onActionButtonClick={() => { navigate('/dashboard') }} />}
+            {error && <ToastNotification onCloseButtonClick={() => navigate('/dashboard')} role="status" title="Error" subtitle={error} kind="error" lowContrast={true} />}
 
         </div>)
 }

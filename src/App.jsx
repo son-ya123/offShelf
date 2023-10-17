@@ -10,6 +10,7 @@ import RegisterPage from './components/RegisterPage';
 import { useTheme } from '@carbon/react';
 import {
   createBrowserRouter,
+  Navigate,
   RouterProvider,
   useLocation,
 } from "react-router-dom";
@@ -37,23 +38,23 @@ function App() {
     },
     {
       path: "form/new",
-      element: <><PageHeader /><FormPage /></>,
+      element: <RequireAuth><PageHeader /><FormPage /></RequireAuth>,
     },
     {
       path: "form/camera",
-      element: <><PageHeader /><CameraInput /></>,
+      element: <RequireAuth><PageHeader /><CameraInput /></RequireAuth>,
     },
     {
       path: "form/output",
-      element: <><PageHeader /><FormOutputPage /></>,
+      element: <RequireAuth><PageHeader /><FormOutputPage /></RequireAuth>,
     },
     {
       path: "form/voice",
-      element: <><PageHeader /><VoiceInput /></>,
+      element: <RequireAuth><PageHeader /><VoiceInput /></RequireAuth>,
     },
     {
       path: "dashboard",
-      element: <><PageHeader /><Dashboard /></>,
+      element: <RequireAuth><PageHeader /><Dashboard /></RequireAuth>,
     },
     {
       path: "register",
@@ -61,7 +62,7 @@ function App() {
     },
     {
       path: "product-details",
-      element: <><PageHeader /><ProductDetails /></>,
+      element: <RequireAuth><PageHeader /><ProductDetails /></RequireAuth>,
     }
   ]);
   return (
@@ -75,6 +76,13 @@ function App() {
       </Theme>
     </GlobalTheme>
   )
+}
+function RequireAuth({ children }) {
+  if (!window.sessionStorage.getItem("token")) {
+    return <Navigate to="/login" replace={true} />;
+  }
+
+  return children;
 }
 
 export default App
