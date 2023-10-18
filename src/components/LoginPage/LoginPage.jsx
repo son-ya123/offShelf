@@ -20,7 +20,7 @@ const LoginPage = () => {
     }
 
     return (
-        <div className='form-container'>
+        <div className='form-container sign-in-form'>
             {/* <CameraInput image={image} saveImage={saveImage}/> */}
             {/* <div className='tiles-container'> */}
             <h5 className='form-title'>Sign in</h5>

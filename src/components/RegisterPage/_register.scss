@@ -110,3 +110,7 @@
     opacity: 30%;
     pointer-events: none;
 }
+
+.cds--toast-notification--low-contrast .cds--toast-notification__subtitle {
+    white-space: pre-wrap;
+}

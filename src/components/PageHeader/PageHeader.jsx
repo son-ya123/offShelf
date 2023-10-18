@@ -29,7 +29,7 @@ const PageHeader = () => (
           isActive={isSideNavExpanded}
         />
         <HeaderName href="/" prefix="">
-          <div className='menu-icons'><Sustainability /> Off Shelf</div>
+          <div className='menu-icons'><Sustainability style={{ fill: '#42be65' }} /> Off Shelf</div>
         </HeaderName>
         <HeaderNavigation aria-label="Off shelf">
           <HeaderMenuItem href="/repos"><div className='menu-icons'><FruitBowl />Fresh items</div></HeaderMenuItem>

@@ -31,7 +31,8 @@ const RegisterPage = () => {
             setLoading(false);
         } catch (err) {
             if (await err.response) {
-                setErrMsg(JSON.stringify(await err.response?.data));
+                const str = await Object.values(err.response?.data).join('\n');
+                setErrMsg(str);
             }
             else {
                 setErrMsg("Unexpected error occurred")
@@ -43,12 +44,12 @@ const RegisterPage = () => {
     return (
         <div className='container'>
             {/* <CameraInput image={image} saveImage={saveImage}/> */}
-            <div className={success || error ? 'form-container overlay' : 'form-container'}>
-                <div className='form-header'>
+            <div className={success || error ? 'form-container sign-in-form overlay' : 'form-container sign-in-form'}>
+                {/*  <div className='form-header'>
 
-                </div>
+                </div> */}
                 <div className='form-title'>
-                    <Button className='arrowLeft' onClick={e => navigate("/login")} size='sm' kind='ghost' renderIcon={ArrowLeft}></Button>
+                    {/* <Button className='arrowLeft' onClick={e => navigate("/login")} size='sm' kind='ghost' renderIcon={ArrowLeft}></Button> */}
                     <h5 className='form-title'>Create Account</h5>
                 </div>
                 <FluidForm>
@@ -66,7 +67,7 @@ const RegisterPage = () => {
                     </div>
                     <br /><br />
                     <div className='sign-in-btn'>
-                        <Button disabled={!(checked && email && userName && email)} onClick={() => { register() }} type='submit' style={{ borderRadius: '50px' }}>Sign up</Button>
+                        <Button disabled={!(checked && email && userName && email)} onClick={() => { register() }} style={{ borderRadius: '50px' }}>Sign up</Button>
                     </div>
                     <br /><br />
                     <div className='custom-divider'>
@@ -81,8 +82,8 @@ const RegisterPage = () => {
                 </FluidForm>
 
             </div>
-            {success && <ActionableNotification actionButtonLabel="Continue" onCloseButtonClick={() => navigate('/dashboard')} role="status" title="Success" subtitle="Your account has been created" kind="success" lowContrast={true} onActionButtonClick={() => { navigate('/dashboard') }} />}
-            {error && <ToastNotification onCloseButtonClick={() => navigate('/dashboard')} role="status" title="Error" subtitle={error} kind="error" lowContrast={true} />}
+            {success && <ActionableNotification actionButtonLabel="Continue" onCloseButtonClick={() => { setSuccess(); navigate('/dashboard') }} role="status" title="Success" subtitle="Your account has been created" kind="success" lowContrast={true} onActionButtonClick={() => { navigate('/dashboard') }} />}
+            {error && <ToastNotification onCloseButtonClick={() => setErrMsg()} role="status" title="Error" subtitle={error} kind="error" lowContrast={true} />}
 
         </div>)
 }
