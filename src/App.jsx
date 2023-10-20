@@ -30,7 +30,7 @@ function App() {
   const { theme } = useTheme();
   const [image, setImage] = useState();
 
-  const router = createBrowserRouter([
+    const router = createBrowserRouter([
     {
       path: "/",
       element: <LandingPage />,
@@ -47,23 +47,15 @@ function App() {
     },
     {
       path: "form/camera",
-      element: <RequireAuth><PageHeader /><CameraInput image={image} setImage={setImage} /></RequireAuth>,
+      element: <RequireAuth><PageHeader /><CameraInput /></RequireAuth>,
     },
     {
       path: "form/output",
-      element: <RequireAuth><PageHeader /><FormOutputPage image={image} setImage={setImage} /></RequireAuth>,
-    },
-    {
-      path: "form/output/:name/:type",
-      element: <RequireAuth><PageHeader /><FormOutputPage /></RequireAuth>,
-    },
-    {
-      path: "form/output/:name/:type/:qty",
       element: <RequireAuth><PageHeader /><FormOutputPage /></RequireAuth>,
     },
     {
       path: "form/voice",
-      element: <RequireAuth><PageHeader /><VoiceInputContainer /></RequireAuth>,
+      element: <RequireAuth><PageHeader /><VoiceInput /></RequireAuth>,
     },
     {
       path: "dashboard",
@@ -74,10 +66,12 @@ function App() {
       element: <RegisterPage />,
     },
     {
-      path: "product-details/:name",
+      path: "product-details",
       element: <RequireAuth><PageHeader /><ProductDetails /></RequireAuth>,
     }
-  ]);
+  ],{
+  basename: "/offShelf/",
+  });
 
   /*   const login = async () => {
       try {
