@@ -77,7 +77,6 @@ function App() {
       path: "product-details/:name",
       element: <RequireAuth><PageHeader /><ProductDetails /></RequireAuth>,
     }
-<<<<<<< HEAD
   ]);
 
   /*   const login = async () => {
@@ -94,11 +93,6 @@ function App() {
   
     login(); */
 
-=======
-  ],{
-  basename: "/offShelf/",
-  });
->>>>>>> fa320644c12afe2ad5f280777f4a2f19ad7274d5
   return (
     <GlobalTheme theme="g10">
       <Theme theme="g10">
