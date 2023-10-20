@@ -64,7 +64,9 @@ function App() {
       path: "product-details",
       element: <RequireAuth><PageHeader /><ProductDetails /></RequireAuth>,
     }
-  ]);
+  ],{
+  basename: "/offShelf/",
+  });
   return (
     <GlobalTheme theme="g10">
       <Theme theme="g10">
