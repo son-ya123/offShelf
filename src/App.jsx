@@ -31,45 +31,53 @@ function App() {
   const [image, setImage] = useState();
 
     const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <LandingPage />,
-      errorElement: <><PageHeader /><ErrorPage /></>,
-
-    },
-    {
-      path: "login",
-      element: <LoginPage />,
-    },
-    {
-      path: "form/new",
-      element: <RequireAuth><PageHeader /><FormPage /></RequireAuth>,
-    },
-    {
-      path: "form/camera",
-      element: <RequireAuth><PageHeader /><CameraInput /></RequireAuth>,
-    },
-    {
-      path: "form/output",
-      element: <RequireAuth><PageHeader /><FormOutputPage /></RequireAuth>,
-    },
-    {
-      path: "form/voice",
-      element: <RequireAuth><PageHeader /><VoiceInput /></RequireAuth>,
-    },
-    {
-      path: "dashboard",
-      element: <RequireAuth><PageHeader /><Dashboard /></RequireAuth>,
-    },
-    {
-      path: "register",
-      element: <RegisterPage />,
-    },
-    {
-      path: "product-details",
-      element: <RequireAuth><PageHeader /><ProductDetails /></RequireAuth>,
-    }
-  ],{
+      {
+        path: "/",
+        element: <LandingPage />,
+        errorElement: <><PageHeader /><ErrorPage /></>,
+  
+      },
+      {
+        path: "login",
+        element: <LoginPage />,
+      },
+      {
+        path: "form/new",
+        element: <RequireAuth><PageHeader /><FormPage /></RequireAuth>,
+      },
+      {
+        path: "form/camera",
+        element: <RequireAuth><PageHeader /><CameraInput image={image} setImage={setImage} /></RequireAuth>,
+      },
+      {
+        path: "form/output",
+        element: <RequireAuth><PageHeader /><FormOutputPage image={image} setImage={setImage} /></RequireAuth>,
+      },
+      {
+        path: "form/output/:name/:type",
+        element: <RequireAuth><PageHeader /><FormOutputPage /></RequireAuth>,
+      },
+      {
+        path: "form/output/:name/:type/:qty",
+        element: <RequireAuth><PageHeader /><FormOutputPage /></RequireAuth>,
+      },
+      {
+        path: "form/voice",
+        element: <RequireAuth><PageHeader /><VoiceInputContainer /></RequireAuth>,
+      },
+      {
+        path: "dashboard",
+        element: <RequireAuth><PageHeader /><Dashboard /></RequireAuth>,
+      },
+      {
+        path: "register",
+        element: <RegisterPage />,
+      },
+      {
+        path: "product-details/:name",
+        element: <RequireAuth><PageHeader /><ProductDetails /></RequireAuth>,
+      }
+    ],{
   basename: "/offShelf/",
   });
 
